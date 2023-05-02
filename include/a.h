@@ -14,7 +14,6 @@ public:
 private:
     A() = default;
 public:
-//    SINGLETON_CONSTRUCTOR(PCBase)
 
     friend A& ::na::nd::getSingleton<A>();
 

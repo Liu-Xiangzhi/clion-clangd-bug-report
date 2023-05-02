@@ -1,3 +1,5 @@
+## SOLVED
+see [this](https://youtrack.jetbrains.com/issue/CPP-33256/Cant-resolve-reference-while-navigate-to-definition-of-templated-function) for more information.
 ## What is this
 This is an example reporting a bug in CLion-embeded clangd. If you have found a solution to solve this bug or found that it's the author's fault, please contact the author(<lxzbuaa@126.com>), thanks.
 ## Environment
@@ -18,8 +20,8 @@ After I left click the `getSingleton` pressing `ctrl` meanwhile, CLion got stuck
 **clangd may got into a dead loop**  
 ![](2.png)  
 ![](3.png)  
-I turn on my system monitor and find that `clangd` takes 8 percent of my CPU usage which also means it occupied one whole core of my CPU. But CLion(denotes as `java` in monitor) takes low CPU usage.  
-Base on above, I guess the bug is trigger in a sequence as below:
+I turn on my system monitor and find that `clangd` takes 8 percent of my CPU usage which also means it occupied one whole core of my CPU. But CLion(denoted as `java` in monitor) takes low CPU usage.  
+Base on above, I guess the bug is triggered in a sequence as below:
 + CLion create a child process clangd
 + clangd gets into a dead loop
 + CLion try to get the definition of getSingleton so it calls (and waits for) clangd, sas a result it also get stuck
